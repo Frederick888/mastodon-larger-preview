@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            Mastodon Larger Preview
 // @namespace       https://onee3.org
-// @version         0.1.0
+// @version         0.1.1
 // @description     Larger Open Graph preview images in Mastodon
 // @copyright       2020, Frederick888 (https://openuserjs.org/users/Frederick888)
 // @author          Frederick888
@@ -34,7 +34,7 @@ function htmlToElement(html) {
 }
 
 function addLargerOpenGraph(container, ogImage) {
-    let ogImageLink = ogImage.style["background-image"].replace(/^url\("|"\)$/g, "");
+    let ogImageLink = ogImage.getAttribute('src');
     let ogContainer = ogImage.closest('.status-card');
     let ogLink = ogContainer.getAttribute('href');
     let actionBar = container.querySelector('.status__action-bar');
@@ -49,7 +49,7 @@ function addLargerOpenGraph(container, ogImage) {
 }
 
 function mainLoop() {
-    document.querySelectorAll('div.status-card__image-image[style*="background-image"]:not([og-larger-processed])')
+    document.querySelectorAll('img.status-card__image-image:not([og-larger-processed])')
         .forEach((ogImage) => {
             ogImage.setAttribute('og-larger-processed', '1');
             let container = ogImage.closest('.status__wrapper');
