@@ -37,6 +37,12 @@ function addLargerOpenGraph(container, ogImage) {
     let ogImageLink = ogImage.getAttribute('src');
     let ogContainer = ogImage.closest('.status-card');
     let ogLink = ogContainer.getAttribute('href');
+    if (ogLink === null) {
+        let oembedActionsLink = ogContainer.querySelector('.status-card__actions a[href]');
+        if (oembedActionsLink !== null) {
+            ogLink = oembedActionsLink.getAttribute('href');
+        }
+    }
     let actionBar = container.querySelector('.status__action-bar');
 
     let mediaGallery = htmlToElement(galleryTemplate);
