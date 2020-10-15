@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name            Mastodon Larger Preview
 // @namespace       https://onee3.org
-// @version         0.1.1
+// @version         0.1.2
 // @description     Larger Open Graph preview images in Mastodon
 // @copyright       2020, Frederick888 (https://openuserjs.org/users/Frederick888)
 // @author          Frederick888
